@@ -1,7 +1,8 @@
 import express from 'express';
 import morgan from 'morgan';
-import authRoutes from './routes/auth.routes.js';
 import cookieParser from 'cookie-parser'
+import authRoutes from './routes/auth.routes.js';
+import recepiesRouts from './routes/recepiesFav.routes.js'
 
 const app = express();
 
@@ -10,5 +11,6 @@ app.use(express.json()); // esto permite que el back entienda las peticiones en 
 app.use(cookieParser());
 
 app.use("/api", authRoutes)
+app.use("/api", recepiesRouts)
 
 export default app;
