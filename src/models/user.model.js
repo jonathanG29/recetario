@@ -14,7 +14,12 @@ const userSchema =  new mongoose.Schema({
     password:{
         type: String,
         required: true
-    }
+    },
+    recipiefav:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Recipies",
+        default: null,
+    },
 },{
     timestamps: true
 })
