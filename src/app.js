@@ -3,9 +3,13 @@ import morgan from 'morgan';
 import cookieParser from 'cookie-parser'
 import authRoutes from './routes/auth.routes.js';
 import recepiesRouts from './routes/recepiesFav.routes.js'
+import cors from 'cors'
 
 const app = express();
 
+app.use(cors({
+    origin: 'http://localhost:5173',
+}))
 app.use(morgan('dev'));
 app.use(express.json()); // esto permite que el back entienda las peticiones en formato json y se exporta desde express
 app.use(cookieParser());
