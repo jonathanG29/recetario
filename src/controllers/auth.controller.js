@@ -5,10 +5,14 @@ import userModel from "../models/user.model.js";
 
 export const register = async(req, res) => {
     const {email, password, username} = req.body
-
-    const passwordHash =  await bcryp.hash(password, 10)
-
+    
     try {
+
+        const userFound = await User.findOne({email})
+        if(userFound) return res.status(400).json(["the email is already in use "]);
+
+        const passwordHash =  await bcryp.hash(password, 10)
+        
         const newUser = User({
             username,
             email,
