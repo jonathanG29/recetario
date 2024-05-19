@@ -9,6 +9,7 @@ const app = express();
 
 app.use(cors({
     origin: 'http://localhost:5173',
+    credentials: true
 }))
 app.use(morgan('dev'));
 app.use(express.json()); // esto permite que el back entienda las peticiones en formato json y se exporta desde express
